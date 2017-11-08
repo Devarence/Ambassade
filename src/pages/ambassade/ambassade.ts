@@ -14,7 +14,7 @@ export class AmbassadePage {
   ambassade: Ambassade = new Ambassade();
 
 
-  pays: String[] = new Array<String>('Afriaue du sud', 'Ailgerie');
+ /* pays: String[] = new Array<String>('Afriaue du sud', 'Ailgerie');
   //ville_localisation: String = 'Abidjan';
   adresse: String[] = new Array<String>('Cocody President 08 BP 1806 Abidjan 08', 
     ' 53 Boulevard clozel 01 BP 1015 Abidjan 01');
@@ -23,14 +23,14 @@ export class AmbassadePage {
   email: String[] = new Array<String>('abidjan@dirco.gov.za', 'aucun');
   site_web: String[] = new Array<String>('aucun', 'aucun');
   heure_ouverture: String[] = new Array<String>('Lundi-jeudi 08H-16h30 / vend 8H-14H', 'inconnue');
-  chef_mission: String[] = new Array<String>('Dayamand Naidoo', 'Boumediene Guennad');
+  chef_mission: String[] = new Array<String>('Dayamand Naidoo', 'Boumediene Guennad');*/
 
   constructor(public navCtrl: NavController, private storage: Storage, public navParams: NavParams) {
-        this.load();
+        
   }
 
   //initialisation de la liste des amabassades
-  initAmbassade()
+  /*initAmbassade()
   {
     this.storage.get('amabassade').then((resultat)=>{
       var result = resultat;
@@ -80,25 +80,25 @@ export class AmbassadePage {
           }
         }
       }
-      
+        result.unshift(this.ambassade);
         this.storage.set('ambassade', result);
     })
       
   
-  }
+  }*/
 
   //charger les ambassade presente et les afficher
-  load()
+  /*load()
   {
     this.initAmbassade();
-   this.storage.get("ambassade").then((result)=>{
+    this.storage.get("ambassade").then((result)=>{
     this.ambassade_bdd = result;
     if(this.ambassade_bdd== null)
     {
       this.ambassade_bdd = new Array<Ambassade>();
     }
    });
-  }
+  }*/
   
 
 }

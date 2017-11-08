@@ -1,7 +1,7 @@
 export class Ambassade
 {
-    pays: String= 'Afriaue du sud';
-    ville_localisation: String = 'Abidjan';
+    pays: String;
+    ville_localisation: String;
     adresse: String;
     telephone: String;
     fax: String;
