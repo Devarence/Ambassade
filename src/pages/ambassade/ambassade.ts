@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {Storage} from '@ionic/storage';
 import {Ambassade} from '../../models/ambassade';
+import {InfoAmbassadePage} from '../info_ambassade/info_ambassade'
 
 @Component({
   selector: 'page-ambassade',
@@ -11,8 +12,6 @@ export class AmbassadePage {
   //recupere les ambassade en base
   ambassade_bdd: Ambassade[];
   
-  ambassade: Ambassade = new Ambassade();
-
   selectedItem: any;
 
   //variable permettant remplir info_amb
@@ -26,7 +25,7 @@ export class AmbassadePage {
   heure_ouverture: String[];
   chef_mission: String[];
   
-  //information necessaire aux embassades
+  //information necessaire aux ambassades
   info_amb: Array<{ pays: String, 
     ville_loc: String, 
     adresse: String,
@@ -46,6 +45,7 @@ export class AmbassadePage {
   {
     //initialisation de nosvariables
     this.pays = ['Afrique du sud', 'Algerie'];
+    this.ville_localisation=['Abidjan', 'Abidjan'];
     this.adresse = ['Cocody President 08 BP 1806 Abidjan 08', 
      '53 Boulevard clozel 01 BP 1015 Abidjan 01'];
     this.telephone = ['22 44 59 63', '20 32 32 40'];
@@ -59,14 +59,9 @@ export class AmbassadePage {
     var j : Number = this.pays.length;
 
    //boucle pour ajouter les info dans la variable info_amb et dans notre base
-    for(let i=0; i <= j ; i++)
+    for(let i=0; i < j ; i++)
     {
-      
-      for (let a = 0; a<= j; a++){
-      this.ville_localisation = ['Abidjan'];
-      }
-
-      //recuperation des donnees et initialisation de la variable info_amb
+       //recuperation des donnees et initialisation de la variable info_amb
       this.info_amb.push({
         pays: this.pays[i],
         ville_loc: this.ville_localisation[i],
@@ -83,7 +78,6 @@ export class AmbassadePage {
     
     }
       //stockage en bdd
-      this.storage.set('ambassade.ville_localisation', this.ville_localisation);
       this.storage.set('ambassade', this.info_amb);
 
     /*
@@ -148,11 +142,7 @@ export class AmbassadePage {
     this.initAmbassade();
     this.storage.get("ambassade").then((result)=>{
     this.ambassade_bdd = result;
-    if(this.ambassade_bdd== null)
-    {
-      this.ambassade_bdd = new Array<Ambassade>();
-    }
-   });
+    });
   }
   
 
